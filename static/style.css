@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.event-box {
+    background: white;
+    width: 340px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.time {
+    color: #555;
+    font-size: 14px;
+}
+
+.event-time {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.no-event {
+    color: #999;
+    font-style: italic;
+}
