@@ -31,8 +31,12 @@ EVENTS = [
 @app.route("/", methods=["GET", "POST"])
 def members_login():
     if request.method == "POST":
-        if request.form["password"] == MEMBER_PASSWORD:
+        pseudo = request.form["pseudo"]
+        password = request.form["password"]
+
+        if password == MEMBER_PASSWORD:
             session["member"] = True
+            session["pseudo"] = pseudo  # <- on stocke le pseudo
             return redirect("/members")
         else:
             return render_template("MLogin.html", error="Mot de passe incorrect")
@@ -62,11 +66,14 @@ def members():
         "jeudi", "vendredi", "samedi", "dimanche"
     ]
 
+    pseudo = session.get("pseudo", "Utilisateur")
+
     return render_template(
         "members.html",
         event=current_event,
         now=now.strftime("%H:%M"),
-        today=day_names[current_day]
+        today=day_names[current_day],
+        pseudo=pseudo  # <- on envoie le pseudo au template
     )
 
 
