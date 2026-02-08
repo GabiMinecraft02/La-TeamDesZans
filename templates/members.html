@@ -9,6 +9,8 @@
 
 <h1>Espace Membres</h1>
 
+    <h2>events</h2>
+    
 <div class="event-box">
     <h2>📅 Event du {{ today }}</h2>
 
@@ -25,7 +27,17 @@
     {% endif %}
 </div>
 
-    
+    <h2>connéctés</h2>
+    <p>{{ pseudo }} est connecté</p>
+
+    {% if event %}
+        <h2>Événement en cours : {{ event.title }}</h2>
+        <p>{{ event.description }}</p>
+    {% else %}
+        <p>Aucun événement en cours</p>
+    {% endif %}
+
+    <a href="/logout">Se déconnecter</a>
 
 </body>
 </html>
