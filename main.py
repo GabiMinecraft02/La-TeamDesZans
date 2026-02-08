@@ -26,17 +26,9 @@ EVENTS = [
     }
 ]
 
-
-# ---------- PAGES PUBLIQUES ----------
-
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-
 # ---------- MEMBRES ----------
 
-@app.route("/memberslogin", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def members_login():
     if request.method == "POST":
         if request.form["password"] == MEMBER_PASSWORD:
@@ -51,7 +43,7 @@ def members_login():
 @app.route("/members")
 def members():
     if not session.get("member"):
-        return redirect("/memberslogin")
+        return redirect("/")
 
     now = datetime.now()
     current_day = now.weekday()      # 0-6
