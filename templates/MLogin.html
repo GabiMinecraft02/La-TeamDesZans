@@ -7,14 +7,15 @@
 </head>
 <body>
     <h1>Connexion Membres</h1>
+    
+<form method="post">
+    Pseudo : <input type="text" name="pseudo" required><br>
+    Mot de passe : <input type="password" name="password" required><br>
+    <input type="submit" value="Connexion">
+</form>
+{% if error %}
+<p style="color:red">{{ error }}</p>
+{% endif %}
 
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
-
-    <form method="POST">
-        <input type="password" name="password" placeholder="Mot de passe" required>
-        <button type="submit">Se connecter</button>
-    </form>
 </body>
 </html>
