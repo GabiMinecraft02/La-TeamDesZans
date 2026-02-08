@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace Membres</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Espace Membres</h1>
+
+<div class="event-box">
+    <h2>📅 Event en cours</h2>
+
+    <p class="time">Heure actuelle : {{ now }}</p>
+
+    {% if event %}
+        <h3>{{ event.title }}</h3>
+        <p>{{ event.description }}</p>
+        <p class="event-time">{{ event.start }} → {{ event.end }}</p>
+    {% else %}
+        <p class="no-event">Aucun event en cours</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
